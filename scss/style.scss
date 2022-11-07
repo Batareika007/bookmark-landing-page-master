@@ -1,0 +1,91 @@
+@import "normalize";
+@import "mixins";
+
+/** ============== global style ================ */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* smooth scrolling */
+
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  object-fit: cover;
+  max-width: 100%;
+}
+
+/* remove 'X' from input box to clear the text*/
+
+input::-ms-clear {
+  display: none;
+}
+
+/* remove link underline */
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+/* remove arrow from select dropdown list */
+select {
+  appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+}
+
+/* remove input number arrow if need */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+/* ======== custom preused classes ==========*/
+
+/* hide scroll bar if needed */
+
+.hide-scroll {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    /* Firefox */
+    display: none;
+  }
+}
+
+/* disable mouse interact */
+.disable-pointer {
+  pointer-events: none;
+}
+
+/** ============ start  custom style ============ */
+
+.container {
+  @include container(1440px, 1.5%)
+}

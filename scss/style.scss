@@ -1,30 +1,31 @@
 @import "normalize";
 @import "mixins";
+@import "colors";
 
 /** ============== global style ================ */
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 /* smooth scrolling */
 
 html {
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 img {
-  object-fit: cover;
-  max-width: 100%;
+	object-fit: cover;
+	max-width: 100%;
 }
 
 /* remove 'X' from input box to clear the text*/
 
 input::-ms-clear {
-  display: none;
+	display: none;
 }
 
 /* remove link underline */
@@ -32,36 +33,36 @@ a,
 a:hover,
 a:focus,
 a:active {
-  text-decoration: none;
-  color: inherit;
+	text-decoration: none;
+	color: inherit;
 }
 
 ol,
 ul {
-  list-style: none;
+	list-style: none;
 }
 
 /* remove arrow from select dropdown list */
 select {
-  appearance: none;
-  text-indent: 1px;
-  text-overflow: "";
+	appearance: none;
+	text-indent: 1px;
+	text-overflow: "";
 }
 
 /* remove input number arrow if need */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  appearance: none;
-  margin: 0;
+	appearance: none;
+	margin: 0;
 }
 
 input[type="number"] {
-  appearance: textfield;
+	appearance: textfield;
 }
 
 button {
-  outline: none;
-  border: none;
+	outline: none;
+	border: none;
 }
 
 /* ======== custom preused classes ==========*/
@@ -69,23 +70,28 @@ button {
 /* hide scroll bar if needed */
 
 .hide-scroll {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
+	-ms-overflow-style: none;
+	/* IE and Edge */
+	scrollbar-width: none;
 
-  &::-webkit-scrollbar {
-    /* Firefox */
-    display: none;
-  }
+	&::-webkit-scrollbar {
+		/* Firefox */
+		display: none;
+	}
 }
 
 /* disable mouse interact */
 .disable-pointer {
-  pointer-events: none;
+	pointer-events: none;
 }
 
 /** ============ start  custom style ============ */
 
+body {
+	font-size: 18px;
+	font-family: "Rubik", sans-serif;
+}
+
 .container {
-  @include container(1440px, 1.5%)
+	@include container(1440px, 1.5%);
 }

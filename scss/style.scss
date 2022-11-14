@@ -91,6 +91,9 @@ body {
 	font-size: 18px;
 	font-family: "Rubik", sans-serif;
 	color: $text_color;
+	&.active {
+		overflow: hidden;
+	}
 }
 
 .wrapper {
@@ -132,9 +135,19 @@ body {
 		justify-content: space-between;
 	}
 	&__burger-menu {
+		position: relative;
 		display: none;
+		align-items: center;
+		z-index: 100;
+		img {
+			cursor: pointer;
+		}
+	}
+	&__logo {
+		z-index: 100;
 	}
 }
+
 .nav {
 	&__inner {
 		text-transform: uppercase;
@@ -239,14 +252,18 @@ body {
 		padding: 0 4rem 2rem;
 		border-bottom: 5px solid transparent;
 		transition: all ease 0.3s;
+		
 		&:hover {
 			color: $red_color;
+		}
+		&.active{
+			border-color:$red_color;
+			color: $heading_color;
 		}
 	}
 
 	&__container {
 		display: flex;
-		overflow-x: auto;
 		overflow: hidden;
 		&::after {
 			content: "";
@@ -261,13 +278,14 @@ body {
 		}
 	}
 	&__item {
-		padding: 6rem 0;
+		
+		padding: 6rem 5vw;
 		flex: 0 0 100%;
 		display: flex;
 		justify-content: flex-end;
 		background-repeat: no-repeat;
-		background-size: auto 345px;
-		background-position: top left;
+		background-size: auto 80%;
+		background-position:6vw top ;
 		&:nth-child(1) {
 			background-image: url(../images/illustration-features-tab-1.svg);
 		}
@@ -591,24 +609,43 @@ body {
 				display: none;
 			}
 		}
+		&__logo.active {
+			svg path {
+				fill:white;
+			}
+			path:last-child {
+				fill: $heading_color
+			}
+			circle {
+				fill: white;
+			}
+			
+		}
 	}
 	.nav {
 		&.active {
-			display: flex;
+			opacity: 1;
+			transform: scale(1);
+			left: 0;
 		}
-		display: none;
+		transition: all ease 0.3s;
+		display: flex;
+		position: absolute;
+		transition: all ease 0.3s;
 		flex-direction: column;
 		justify-content: space-between;
 		min-height: 100%;
 		background-color: hsla(229, 31%, 21%, 0.9);
-		position: absolute;
 		color: white;
 		padding-top: 6rem;
-		padding-bottom: 6rem;
+		padding-bottom: 2rem;
 		top: 0;
 		left: 0;
 		width: 100%;
 		z-index: 10;
+		opacity: 0;
+		transform: scale(0.3);
+		
 		&__inner {
 			flex-direction: column;
 			justify-content: center;
@@ -669,11 +706,26 @@ body {
 			max-width: 100%;
 		}
 		&__link {
-			border-top: 1px solid hsla(229, 8%, 60%, 0.5);
+			border-bottom: 1px solid hsla(229, 8%, 60%, 0.5);
 			width: 100%;
 			padding: 1rem 0;
-			&:last-child {
-				border-bottom: 1px solid hsla(229, 8%, 60%, 0.5);
+			&:first-child {
+				border-top: 1px solid hsla(229, 8%, 60%, 0.5);
+			}
+			&.active{
+				position: relative;
+				border-color: hsla(229deg, 8%, 60%, 0.5);;
+				&::after{
+					content: '';
+					display: block;
+					position: absolute;
+					height: 3px;
+					width: 50%;
+					bottom: -1px;
+					left: 50%;
+					transform: translate(-50%);
+					background-color: $red_color;
+				}
 			}
 		}
 		&__item {
@@ -701,73 +753,68 @@ body {
 		}
 	}
 
-	.cards{
-		border: 1px solid red;
-		&__inner{
+	.cards {
+		&__inner {
 			max-width: 100%;
 		}
 	}
-	.card{
+	.card {
 		flex-direction: column;
 
-		&__item{
-
-			&:first-child, &:last-child{
+		&__item {
+			&:first-child,
+			&:last-child {
 				align-self: unset;
 			}
 		}
 	}
 
-	.faq{
-		&__header{
+	.faq {
+		&__header {
 			max-width: 100%;
 		}
-		&__accordion{
-			
+		&__accordion {
 			max-width: 100%;
 		}
 	}
 
-	.contacts{
-		&__text{
+	.contacts {
+		&__text {
 			max-width: 100%;
 		}
-		form{
+		form {
 			flex-direction: column;
 			gap: 2rem;
 		}
-		input{
+		input {
 			max-width: 300px;
 			width: 300px;
-
 		}
 	}
 }
 @media screen and (max-width: 768px) {
-	.footer{
-		&__inner{
+	.footer {
+		&__inner {
 			flex-direction: column;
 			justify-content: center;
 			gap: 2rem;
 		}
-		&__logo{
+		&__logo {
 			margin: 0;
 		}
-		&__nav{
-
-			&:last-child{
+		&__nav {
+			&:last-child {
 				margin: 0;
 			}
 		}
-		.attribution{
+		.attribution {
 			text-align: center;
 		}
 	}
 }
 
 @media screen and (max-width: 375px) {
-	.footer__nav:not(:last-child){
-			flex-direction: column;
+	.footer__nav:not(:last-child) {
+		flex-direction: column;
 	}
 }
-

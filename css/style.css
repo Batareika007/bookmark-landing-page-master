@@ -447,6 +447,7 @@ body.active {
 }
 
 .wrapper {
+  max-width: 100vw;
   overflow: hidden;
 }
 
@@ -455,6 +456,10 @@ body.active {
   margin: 0 auto;
   width: 100%;
   padding: 0 5vw;
+}
+
+section:not(:last-child) {
+  margin-bottom: 120px !important;
 }
 
 .btn {
@@ -489,9 +494,9 @@ body.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -574,6 +579,7 @@ body.active {
 .hero__btns div {
   padding-left: 1rem;
   padding-right: 1rem;
+  white-space: nowrap;
 }
 .hero__btns_firefox {
   color: hsl(229deg, 8%, 60%);
@@ -637,6 +643,7 @@ body.active {
   display: -ms-flexbox;
   display: flex;
   overflow: hidden;
+  gap: 50%;
 }
 .slider__container::after {
   content: "";
@@ -662,7 +669,7 @@ body.active {
           justify-content: flex-end;
   background-repeat: no-repeat;
   background-size: auto 80%;
-  background-position: 6vw top;
+  background-position: 5vw top;
 }
 .slider__item:nth-child(1) {
   background-image: url(../images/illustration-features-tab-1.svg);
@@ -796,7 +803,8 @@ body.active {
   border-bottom: 1px solid hsl(229deg, 8%, 60%);
 }
 .accordion__item.active .accordion__hide {
-  height: auto;
+  max-height: 700px;
+  overflow: auto;
 }
 .accordion__item.active .accordion__hide p {
   opacity: 1;
@@ -811,16 +819,17 @@ body.active {
   stroke: hsl(0deg, 94%, 66%);
 }
 .accordion__item .accordion__hide {
-  -webkit-transition: all ease 0.6s;
-  transition: all ease 0.6s;
-  height: 0;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  max-height: 0;
 }
 .accordion__item .accordion__hide p {
   -webkit-transition: all ease 0.6s;
   transition: all ease 0.6s;
   opacity: 0;
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8);
+  -webkit-transform: scale(0.3);
+          transform: scale(0.3);
+  pointer-events: none;
 }
 .accordion__item .accordion__arrow {
   -webkit-transition: all ease 0.6s;
@@ -1041,6 +1050,7 @@ body.active {
     fill: white;
   }
   .nav {
+    pointer-events: none;
     -webkit-transition: all ease 0.3s;
     transition: all ease 0.3s;
     display: -webkit-box;
@@ -1065,14 +1075,15 @@ body.active {
     width: 100%;
     z-index: 10;
     opacity: 0;
-    -webkit-transform: scale(0.3);
-            transform: scale(0.3);
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
   }
   .nav.active {
     opacity: 1;
     -webkit-transform: scale(1);
             transform: scale(1);
     left: 0;
+    pointer-events: initial;
   }
   .nav__inner {
     -webkit-box-orient: vertical;
@@ -1115,22 +1126,25 @@ body.active {
   }
   .hero {
     background-position: top;
-    background-size: 50%;
+    background-size: 70% auto;
   }
   .hero__inner {
     max-width: 90vw;
     text-align: center;
     margin: 0 auto;
-    padding-top: 31vw;
+    padding-top: 45vw;
   }
   .hero__btns {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
+  .hero__btns div {
+    white-space: initial;
+  }
   .hero::after {
     height: 28vw;
-    top: 5vw;
+    top: 18vw;
     bottom: unset;
     width: 50%;
   }
@@ -1227,6 +1241,65 @@ body.active {
   }
 }
 @media screen and (max-width: 768px) {
+  .hero__heading {
+    font-size: 9vw;
+  }
+  .hero__text {
+    font-size: calc(4.5vw + 4px);
+  }
+  .hero__btns {
+    font-size: calc(3vw + 4px);
+  }
+  .hero__btns div {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .features__heading {
+    font-size: 8vw;
+  }
+  .features__text {
+    font-size: calc(4.5vw + 4px);
+  }
+  .slider__links {
+    margin-bottom: 2rem;
+  }
+  .slider__link {
+    font-size: 5vw;
+  }
+  .slider__item {
+    padding-top: 55vw;
+  }
+  .slider__heading {
+    font-size: 7vw;
+  }
+  .slider__text {
+    font-size: calc(4.25vw + 4px);
+  }
+  .cards__heading {
+    font-size: 7vw;
+  }
+  .cards__text {
+    font-size: calc(4.5vw + 4px);
+  }
+  .faq__heading {
+    font-size: 7vw;
+  }
+  .faq__text {
+    font-size: calc(4vw + 4px);
+  }
+  .accordion__heading {
+    font-size: calc(3.2vw + 4px);
+  }
+  .accordion__ans {
+    font-size: calc(4vw + 4px);
+  }
+  .contacts__top {
+    font-size: 4.5vw;
+  }
+  .contacts__heading {
+    font-size: 7vw;
+  }
   .footer__inner {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;

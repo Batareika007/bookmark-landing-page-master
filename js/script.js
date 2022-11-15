@@ -21,8 +21,13 @@ submit.addEventListener("click", (event) => {
 // accordion
 accordionItems.forEach((element) => {
 	element.addEventListener("click", function () {
-		accordionItems.forEach((el) => el.classList.remove("active"))
-		this.classList.add("active")
+		if(this.classList.contains('active')){
+			accordionItems.forEach((el) => el.classList.remove("active"))
+		}
+		else{
+			accordionItems.forEach((el) => el.classList.remove("active"))
+			this.classList.add("active")
+		}
 	})
 })
 
@@ -72,3 +77,4 @@ sliderItem.forEach((item) => {
         
 	})
 })
+

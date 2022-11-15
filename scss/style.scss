@@ -97,11 +97,16 @@ body {
 }
 
 .wrapper {
+	max-width: 100vw;
 	overflow: hidden;
 }
 
 .container {
 	@include container(1110px, 5vw);
+}
+
+section:not(:last-child){
+	margin-bottom: 120px !important;
 }
 
 .btn {
@@ -131,7 +136,7 @@ body {
 	padding: 2rem 0;
 	&__inner {
 		display: flex;
-		align-items: center;
+		align-items: baseline;
 		justify-content: space-between;
 	}
 	&__burger-menu {
@@ -206,6 +211,7 @@ body {
 		div {
 			padding-left: 1rem;
 			padding-right: 1rem;
+			white-space: nowrap;
 		}
 		&_firefox {
 			color: $text_color;
@@ -265,6 +271,8 @@ body {
 	&__container {
 		display: flex;
 		overflow: hidden;
+		gap: 50%;
+		
 		&::after {
 			content: "";
 			position: absolute;
@@ -278,14 +286,13 @@ body {
 		}
 	}
 	&__item {
-		
 		padding: 6rem 5vw;
 		flex: 0 0 100%;
 		display: flex;
 		justify-content: flex-end;
 		background-repeat: no-repeat;
 		background-size: auto 80%;
-		background-position:6vw top ;
+		background-position:5vw top ;
 		&:nth-child(1) {
 			background-image: url(../images/illustration-features-tab-1.svg);
 		}
@@ -408,7 +415,9 @@ body {
 		}
 		&.active {
 			.accordion__hide {
-				height: auto;
+				// height: auto;
+				max-height: 700px;
+				overflow: auto;
 				p {
 					opacity: 1;
 					transform: scale(1);
@@ -422,12 +431,14 @@ body {
 			}
 		}
 		.accordion__hide {
-			transition: all ease 0.6s;
-			height: 0;
+			transition: all ease 0.3s;
+			// height: 0;
+			max-height: 0;
 			p {
 				transition: all ease 0.6s;
 				opacity: 0;
-				transform: scale(0.8);
+				transform: scale(0.3);
+				pointer-events: none;
 			}
 		}
 		.accordion__arrow {
@@ -602,6 +613,7 @@ body {
 
 @media screen and (max-width: 1024px) {
 	.header {
+		
 		.header__burger-menu {
 			display: block;
 			z-index: 20;
@@ -622,12 +634,15 @@ body {
 			
 		}
 	}
+	
 	.nav {
 		&.active {
 			opacity: 1;
 			transform: scale(1);
 			left: 0;
+			pointer-events:initial;
 		}
+		pointer-events: none;
 		transition: all ease 0.3s;
 		display: flex;
 		position: absolute;
@@ -644,7 +659,7 @@ body {
 		width: 100%;
 		z-index: 10;
 		opacity: 0;
-		transform: scale(0.3);
+		transform: scale(0.9);
 		
 		&__inner {
 			flex-direction: column;
@@ -677,19 +692,23 @@ body {
 
 	.hero {
 		background-position: top;
-		background-size: 50%;
+		background-size: 70% auto;
 		&__inner {
 			max-width: 90vw;
 			text-align: center;
 			margin: 0 auto;
-			padding-top: 31vw;
+			padding-top: 45vw;
 		}
 		&__btns {
+			div{
+
+				white-space: initial;
+			}
 			justify-content: center;
 		}
 		&::after {
 			height: 28vw;
-			top: 5vw;
+			top: 18vw;
 			bottom: unset;
 			width: 50%;
 		}
@@ -792,7 +811,88 @@ body {
 		}
 	}
 }
+
 @media screen and (max-width: 768px) {
+	.hero{
+		&__heading{
+			font-size: 9vw;
+		}
+		&__text{
+			font-size: calc(4.5vw + 4px);
+		}
+		&__btns{
+			font-size: calc(3vw + 4px);
+			div{
+				width: 100%;
+				padding-left:0 ;
+				padding-right:0 ;
+			}
+		}
+	}	
+	
+	.features{
+		&__heading{
+			font-size: 8vw;
+		}
+		&__text{
+			font-size: calc(4.5vw + 4px);
+		}
+	}
+
+	.slider{
+		&__links{
+			margin-bottom: 2rem;
+		}
+		&__link{
+			font-size: 5vw;
+		}
+		&__item{
+			padding-top: 55vw;
+		}
+		&__heading{
+			font-size: 7vw;
+		}
+		&__text{
+			font-size: calc(4.25vw + 4px);
+		}
+	}
+
+	.cards{
+		&__heading{
+			font-size: 7vw;
+		}
+		&__text{
+			font-size: calc(4.5vw + 4px);
+		}
+	}
+	
+	.faq{
+		&__heading{
+			font-size: 7vw;
+		}
+		&__text{
+			font-size: calc(4vw + 4px);
+		}
+	}
+
+	.accordion{
+		&__heading{
+			font-size: calc(3.2vw + 4px );
+		}
+		&__ans{
+			font-size: calc(4vw + 4px );
+		}
+	}
+
+	.contacts{
+		&__top{
+			font-size: 4.5vw;
+		}
+		&__heading{
+			font-size: 7vw;
+		}
+	}
+
 	.footer {
 		&__inner {
 			flex-direction: column;
@@ -818,3 +918,4 @@ body {
 		flex-direction: column;
 	}
 }
+

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
 @import "normalize";
 @import "mixins";
 @import "colors";
@@ -511,9 +512,8 @@ section:not(:last-child){
 			+ .input-err {
 				overflow: hidden;
 				width: 100%;
-				height: 150%;
+				height: 80px;
 				position: absolute;
-				display: flex;
 				flex-direction: column;
 				justify-content: flex-end;
 				border-radius: 8px;
@@ -551,6 +551,8 @@ section:not(:last-child){
 		border-radius: 8px;
 	}
 	.input-err {
+		transition: all 0.3s;
+		display: flex;
 		overflow: hidden;
 		height: 0;
 		// width: 100%;

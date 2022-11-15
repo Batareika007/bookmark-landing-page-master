@@ -4,17 +4,17 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<!-- displays site properly based on user's device -->
-
+		<meta name="description" content="Bookmark landing page Frontend Mentor">
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="32x32"
 			href="./images/favicon-32x32.png" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap"
-			rel="stylesheet" />
+			rel="stylesheet" /> -->
 		<link rel="stylesheet" href="css/style.css" />
 
 		<title>Frontend Mentor | Bookmark landing page</title>
@@ -36,7 +36,7 @@
 			<header class="header">
 				<div class="container">
 					<div class="header__inner">
-						<a href="index.html" class="header__logo">
+						<a href="index.html" class="header__logo" aria-label="Bookmark logo">
 							<svg
 								width="148"
 								height="25"
@@ -244,7 +244,8 @@
 								<div class="card__img">
 									<img
 										src="images/logo-chrome.svg"
-										alt="Chrome" />
+										alt="Chrome" 
+										width="102" height="100"/>
 								</div>
 								<h3 class="card__heading heading-style">
 									Add to Chrome
@@ -259,7 +260,9 @@
 								<div class="card__img">
 									<img
 										src="images/logo-firefox.svg"
-										alt="Firefox" />
+										width="105" height="100"
+										alt="Firefox"
+										 />
 								</div>
 								<h3 class="card__heading heading-style">
 									Add to Firefox
@@ -274,6 +277,7 @@
 								<div class="card__img">
 									<img
 										src="images/logo-opera.svg"
+										width="96" height="100"
 										alt="Opera" />
 								</div>
 								<h3 class="card__heading heading-style">
@@ -444,7 +448,7 @@
 								</h2>
 							</div>
 
-							<form action="">
+							<form action="#">
 								<label for="email">
 									<input
 										type="email"
@@ -453,11 +457,11 @@
 										placeholder="Enter your email address"
 										required />
 
-									<div class="input-err">
+									<span class="input-err">
 										<i class="input-err__msg"
 											>Whoops, make sure it's an email</i
 										>
-									</div>
+									</span>
 								</label>
 
 								<input
@@ -474,7 +478,7 @@
 			<footer class="footer">
 				<div class="container">
 					<div class="footer__inner">
-						<a href="index.html" class="footer__logo logo">
+						<a href="index.html" class="footer__logo logo" aria-label="Bookmark logo">
 							<svg
 								width="148"
 								height="25"
